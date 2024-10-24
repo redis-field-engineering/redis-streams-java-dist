@@ -3,7 +3,7 @@
 :project-name:    redis-streams-java
 :project-group:   com.redis
 :project-version: 0.3.5
-:dist-repo-name:  redis-streams-java-dist
+:dist-repo:       redis-streams-java-dist
 :name:            Redis Streams Java
 :toc:
 :toc-title:
@@ -232,4 +232,8 @@ ConsumerGroupStatus consumerGroupStatsSingleCluster = singleClusterPelTopicManag
 == Support
 
 {name} is supported by Redis, Inc. for enterprise-tier customers as a 'Developer Tool' under the https://redis.io/legal/software-support-policy/[Redis Software Support Policy.] For non enterprise-tier customers we supply support for {name} on a good-faith basis.
-To report bugs, request features, or receive assistance, please https://github.com/{project-owner}/{dist-repo-name}/issues[file an issue].
+To report bugs, request features, or receive assistance, please https://github.com/{project-owner}/{dist-repo}/issues[file an issue].
+
+== License
+
+{name} is licensed under the Business Source License 1.1. Copyright (C) 2024 Redis, Inc. See https://github.com/redis-field-engineering/{dist-repo}/blob/main/LICENSE.md[LICENSE] for details.
