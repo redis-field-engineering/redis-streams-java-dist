@@ -39,11 +39,11 @@ toc::[]
 
 == Installation
 
-To run {name} in production, you'll need one of the following:
+To run {name} in production, you'll need one of the following deployments:
 
-* A https://redis.io/docs/stack/[Redis Stack] instance
+* https://redis.io/docs/stack/[Redis Stack]
 * https://redis.com/redis-enterprise-cloud/overview/[Redis Cloud]
-* https://redis.com/redis-enterprise-software/overview/[Redis Enterprise] deployment
+* https://redis.com/redis-enterprise-software/overview/[Redis Enterprise]
 
 === {name} Connector
 
