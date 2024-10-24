@@ -231,5 +231,5 @@ ConsumerGroupStatus consumerGroupStatsSingleCluster = singleClusterPelTopicManag
 
 == Support
 
-{name} is supported by Redis, Inc. on a good faith effort basis.
+{name} is supported by Redis, Inc. for enterprise-tier customers as a 'Developer Tool' under the https://redis.io/legal/software-support-policy/[Redis Software Support Policy.] For non enterprise-tier customers we supply support for {name} on a good-faith basis.
 To report bugs, request features, or receive assistance, please https://github.com/{project-owner}/{dist-repo-name}/issues[file an issue].
