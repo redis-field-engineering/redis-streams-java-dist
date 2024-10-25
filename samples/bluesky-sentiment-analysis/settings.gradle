@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "org.kordamp.gradle:java-project-gradle-plugin:$kordampPluginVersion"
+        classpath "org.kordamp.gradle:jacoco-gradle-plugin:$kordampPluginVersion"
+        classpath "org.kordamp.gradle:kordamp-parentbuild:$kordampBuildVersion"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$bootPluginVersion"
+        classpath "io.spring.gradle:dependency-management-plugin:$dependencyPluginVersion"
+    }
+}
+
+
+
+apply plugin: 'org.kordamp.gradle.kordamp-parentbuild'
+
+rootProject.name = 'bluesky-sentiment-analysis'
+
+projects {
+    directories = ['producer', 'consumer', 'core', 'api']
+
+    plugins {
+        path(':') {
+            id 'org.kordamp.gradle.java-project'
+            id 'eclipse'
+        }
+        dirs(['producer', 'consumer', 'core', 'api']) {
+            id 'java'
+            id 'org.springframework.boot'
+            id 'io.spring.dependency-management'
+        }
+        dirs(['producer', 'consumer', 'api']){
+            id 'application'
+        }
+        dirs(['core']){
+            id 'java-library'
+        }
+    }
+}
+
+enforce {
+    rule(enforcer.rules.RequireJavaVersion) { r ->
+        r.version.set('17')
+    }
+    rule(enforcer.rules.EnforceBytecodeVersion) { r ->
+        // search only on compile and runtime classpaths
+        r.enabled = false
+    }
+
+}
+

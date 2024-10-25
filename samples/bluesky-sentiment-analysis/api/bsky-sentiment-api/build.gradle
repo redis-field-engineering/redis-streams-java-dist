@@ -1,0 +1,33 @@
+
+group = 'com.redis'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+//    maven("https://repo.spring.io/milestone")
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    implementation "com.redis:redis-streams-java:$redisStreamsJavaVersion"
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'org.projectlombok:lombok:1.18.28'
+    implementation 'com.redis.om:redis-om-spring:0.9.0'
+    implementation "redis.clients:jedis:$jedisVersion"
+    annotationProcessor 'com.redis.om:redis-om-spring:0.9.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

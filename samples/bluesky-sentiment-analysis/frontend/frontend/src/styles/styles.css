@@ -1,0 +1,41 @@
+
+.trendingTopicCard{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 4%;
+    /*display: flex;*/
+    color:#333333;
+    margin-left: 5px;
+    background-color: #e6e6fa;
+}
+
+.trendingTopicCard button{
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left-div{
+    width: 20%;
+    height: 80vh;
+
+    float: left;
+    background-color: #e6e6fa;
+
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

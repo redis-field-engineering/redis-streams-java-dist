@@ -1,0 +1,85 @@
+services:
+  redis:
+    image: redis/redis-stack-server
+    ports:
+      - "10001:6379"
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+        - DS_PROMETHEUS=prometheus
+        - GF_AUTH_ANONYMOUS_ENABLED=true
+        - GF_AUTH_ANONYMOUS_ORG_NAME=Main Org.
+        - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+        - GF_SECURITY_ALLOW_EMBEDDING=true
+        - GF_SERVER_ROOT_URL=http://grafana:3000/grafana
+        - GF_SERVER_DOMAIN=grafana
+        - GF_SERVER_SERVE_FROM_SUB_PATH=false
+        - GF_LOG_LEVEL=error
+    volumes:
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    links:
+      - prometheus
+    ports:
+      - "3000:3000"
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    depends_on:
+      - api
+    links:
+      - api
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  producer:
+    image: producer
+    build:
+      context: .
+      dockerfile: ./producer/Dockerfile
+    environment:
+        - REDIS_HOST=redis
+    links:
+      - redis
+    depends_on:
+      - redis
+  consumer:
+    image: consumer
+    build:
+      context: .
+      dockerfile: ./consumer/Dockerfile
+    environment:
+        - REDIS_HOST=redis
+    links:
+      - redis
+    depends_on:
+      - redis
+  api:
+    image: api
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - redis
+    depends_on:
+      - redis
+      - producer
+      - consumer
+  frontend:
+    image: frontend
+    build:
+      context: ./frontend/frontend
+    ports:
+      - "80:80"
+    links:
+      - api
+      - grafana
+    depends_on:
+      - api
+      - grafana
+    volumes:
+      - ./frontend/frontend/nginx.conf:/etc/nginx/nginx.conf

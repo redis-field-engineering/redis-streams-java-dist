@@ -1,0 +1,3 @@
+aws_region=""
+aws_dns_zone=""
+ssh_key_file=""

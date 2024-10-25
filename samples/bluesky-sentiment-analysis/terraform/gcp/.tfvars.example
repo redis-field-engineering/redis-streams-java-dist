@@ -1,0 +1,5 @@
+gcp-project=""
+gcp-region=""
+gcp-zone=""
+dns-zone-name=""
+subdomain=""

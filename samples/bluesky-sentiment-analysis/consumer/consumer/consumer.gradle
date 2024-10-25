@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.redis'
+version = 'unspecified'
+
+application {
+    mainClass ='com.redis.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':core')
+    implementation "com.redis:redis-streams-java:$redisStreamsJavaVersion"
+    implementation "redis.clients:jedis:$jedisVersion"
+    implementation 'edu.stanford.nlp:stanford-corenlp:4.5.5'
+    implementation 'edu.stanford.nlp:stanford-corenlp:4.5.5:models'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'joda-time:joda-time:2.10.5'
+    implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+    implementation 'io.prometheus:simpleclient:0.16.0'
+    implementation 'io.prometheus:simpleclient_httpserver:0.16.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}
