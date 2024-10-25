@@ -1,7 +1,7 @@
-variable "git_pat" {
+variable "aws_dns_zone" {
   type      = string
   sensitive = true
-  description = "GitHub Personal Access Token"
+  description = "The DNS zone you're going to use for the app"
 }
 
 variable "ssh_key_file"{ 
