@@ -91,6 +91,11 @@ public class Main {
 
                 String key = "com.redis.bskysentimentapi.documents.Post:" + post.getCid();
                 Set<String> hashTags = new HashSet<>(Arrays.asList(post.getHashTags()));
+                if(hashTags.contains("nsfw"))
+                {
+                    consumerGroup.acknowledge(new AckMessage(entry));
+                    continue;
+                }
 
                 if(hashTags.isEmpty()){
                     Map<String,Object> postMap = Map.of(

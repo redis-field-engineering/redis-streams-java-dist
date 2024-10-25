@@ -2,4 +2,4 @@
 
 ./gradlew clean bootJar
 docker compose build
-docker compose up --scale consumer=3
+docker compose up --scale consumer=5
