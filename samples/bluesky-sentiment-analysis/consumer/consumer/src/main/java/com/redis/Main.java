@@ -35,7 +35,7 @@ public class Main {
 
     public void run() throws IOException, InterruptedException {
         Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,ssplit,pos,lemma,parse,sentiment");
+        props.setProperty("annotators", "tokenize,ssplit,parse,sentiment");
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
         String redisHost = System.getenv("REDIS_HOST") != null ? System.getenv("REDIS_HOST") : "localhost";
         System.out.println("Connecting to Redis at " + redisHost);

@@ -43,7 +43,7 @@ public class Bootstrap implements CommandLineRunner {
         };
 
         jedis.sadd(Constants.HASHTAGS_TO_QUERY, hashtags);
-        jedis.sadd(Constants.KEYWORDS_TO_QUERY, "us", "politics", "election", "apple", "tesla", "ai", "history", "pop", "rock", "jazz", "boeing");
+        jedis.sadd(Constants.KEYWORDS_TO_QUERY, "us", "apple", "tesla", "ai", "history", "pop", "rock", "jazz", "boeing", "aws", "google", "azure", "travel", "science","technology", "databases", "WWE", "France", "UK");
 
     }
 }

@@ -34,7 +34,7 @@ public class SentimentService {
 
     public Optional<Double> getSentimentForKeyWord(String keyword) {
         long now = Instant.now().getEpochSecond() * 1000;
-        AggregationBuilder builder = new AggregationBuilder(String.format("@text:%s @createdAt:[%d %d]", keyword, now - 10000, now));
+        AggregationBuilder builder = new AggregationBuilder(String.format("@text:%s @createdAt:[-inf %d]", keyword, now));
         Group group = new Group();
         group.reduce(Reducers.avg("@sentiment").as("sentiment"));
         builder.groupBy(group);
@@ -51,7 +51,7 @@ public class SentimentService {
         }
         String queryString = String.join("|", keyWords);
         long now = Instant.now().getEpochSecond() * 1000;
-        AggregationBuilder builder = new AggregationBuilder(String.format("@text:%s @createdAt:[%d %d]", queryString, now - 10000, now));
+        AggregationBuilder builder = new AggregationBuilder(String.format("@text:%s @createdAt:[-inf %d]", queryString, now));
         Group group = new Group("@text");
         group.reduce(Reducers.avg("@sentiment").as("sentiment"));
         builder.groupBy(group);
