@@ -16,7 +16,7 @@ in the frontend with Grafana.
 You can run the demo locally using docker by running:
 
 ```
-./mvnw clean package
+./gradlew build
 docker compose build
 docker compose up
 ```
