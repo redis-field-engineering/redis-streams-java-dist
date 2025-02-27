@@ -77,7 +77,7 @@ Add the following to your `pom.xml` file:
 
 === Gradle
 
-Add the following to your `build.gradle` file
+Add the following to your `build.gradle` file from the https://central.sonatype.com/artifact/com.redis/redis-streams-java[central repository]
 
 [source,groovy]
 [subs="attributes"]
