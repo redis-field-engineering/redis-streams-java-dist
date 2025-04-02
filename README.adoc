@@ -144,7 +144,7 @@ producer.produce(msg);
 
 To consume messages, simply call `consume` on you consumer group, passing in your consumer name:
 
-```
+```java
 TopicEntry entry = consumerGroup.consume("my-consumer");
 ```
 
