@@ -144,7 +144,9 @@ producer.produce(msg);
 
 To consume messages, simply call `consume` on you consumer group, passing in your consumer name:
 
+```
 TopicEntry entry = consumerGroup.consume("my-consumer");
+```
 
 The message contains:
 1. The message id (the monotonic id created by Redis when the message was produced)
