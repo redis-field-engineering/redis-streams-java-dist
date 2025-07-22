@@ -2,7 +2,7 @@
 :project-owner:   redis-field-engineering
 :project-name:    redis-streams-java
 :project-group:   com.redis
-:project-version: 0.3.5
+:project-version: 0.3.6
 :dist-repo:       redis-streams-java-dist
 :name:            Redis Streams Java
 :toc:
